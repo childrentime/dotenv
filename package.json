@@ -16,14 +16,18 @@
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@types/cross-spawn": "^6.0.2",
     "@types/jest": "^27.0.3",
+    "@types/jsonfile": "^6.1.0",
     "@types/node": "^18.7.6",
     "@types/semver": "^7.3.12",
     "babel-jest": "^27.4.4",
+    "chalk": "^5.0.1",
     "cross-spawn": "^7.0.3",
     "del": "^7.0.0",
     "esbuild": "^0.15.5",
     "esbuild-register": "^3.3.3",
     "jest": "^27.4.4",
+    "jsonfile": "^6.1.0",
+    "prompt-confirm": "^2.0.4",
     "rollup": "^2.78.0",
     "rollup-plugin-copy": "^3.4.0",
     "semver": "^7.3.7",
@@ -33,6 +37,7 @@
   "scripts": {
     "build": "node -r esbuild-register scripts/build.ts",
     "test": "jest --coverage",
-    "pub": "node -r esbuild-register scripts/publish.ts"
+    "pub": "node -r esbuild-register scripts/publish.ts",
+    "ver": "node -r esbuild-register scripts/version.ts"
   }
 }
