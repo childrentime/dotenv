@@ -1,6 +1,6 @@
 {
   "name": "@jsdotenv/autoload",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "description": "autoload env file",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
