@@ -11,6 +11,7 @@ function packageJson(packageName: string, directory = "") {
 
 async function getPackageVersion(packageName: string) {
   let file = packageJson(packageName, "packages");
+  console.log(file);
   let json = await jsonfile.readFile(file);
   return json.version;
 }

@@ -10,18 +10,14 @@ const run = async (args: string[]) => {
   let givenVersion = args[0];
   let prereleaseId = args[1];
 
-  ensureCleanWorkingDirectory();
+  // ensureCleanWorkingDirectory();
 
   // Get the next version number
-  let currentVersion = await getPackageVersion("dotenv");
+  let currentVersion = await getPackageVersion("core");
   let nextVersion = semver.valid(givenVersion);
   if (nextVersion == null) {
     nextVersion = getNextVersion(currentVersion, givenVersion, prereleaseId);
   }
-  let answer = prompt(
-    `Are you sure you want to bump version ${currentVersion} to ${nextVersion}? [Yn] `
-  );
-  console.log(answer);
 
   await incrementVersion(nextVersion);
 };
