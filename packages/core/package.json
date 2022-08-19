@@ -1,6 +1,6 @@
 {
   "name": "@jsdotenv/core",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Loads environment variables from .env file",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
