@@ -53,19 +53,19 @@ async function updateVersion(
   await updatePackageConfig(packageName, (config) => {
     config.version = nextVersion;
     for (let pkg of allPackages) {
-      if (config.dependencies?.[`@dotenv/${pkg}`]) {
-        config.dependencies[`@dotenv/${pkg}`] = nextVersion;
+      if (config.dependencies?.[`@jsdotenv/${pkg}`]) {
+        config.dependencies[`@jsdotenv/${pkg}`] = nextVersion;
       }
-      if (config.devDependencies?.[`@dotenv/${pkg}`]) {
-        config.devDependencies[`@dotenv/${pkg}`] = nextVersion;
+      if (config.devDependencies?.[`@jsdotenv/${pkg}`]) {
+        config.devDependencies[`@jsdotenv/${pkg}`] = nextVersion;
       }
-      if (config.peerDependencies?.[`@dotenv/${pkg}`]) {
-        config.peerDependencies[`@dotenv/${pkg}`] = nextVersion;
+      if (config.peerDependencies?.[`@jsdotenv/${pkg}`]) {
+        config.peerDependencies[`@jsdotenv/${pkg}`] = nextVersion;
       }
     }
   });
   let logName = packageName.startsWith("remix-")
-    ? `@dotenv/${packageName.slice(6)}`
+    ? `@jsdotenv/${packageName.slice(6)}`
     : packageName;
   console.log(
     chalk.green(

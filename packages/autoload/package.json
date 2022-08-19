@@ -1,11 +1,11 @@
 {
-  "name": "@dotenv/autoload",
+  "name": "@jsdotenv/autoload",
   "version": "1.0.2",
   "description": "autoload env file",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "license": "MIT",
   "scripts": {
-    "@dotenv/core": "1.0.0"
+    "@jsdotenv/core": "1.0.0"
   }
 }

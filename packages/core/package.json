@@ -1,5 +1,5 @@
 {
-  "name": "@dotenv/core",
+  "name": "@jsdotenv/core",
   "version": "1.0.2",
   "description": "Loads environment variables from .env file",
   "main": "dist/index.js",

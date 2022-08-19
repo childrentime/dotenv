@@ -13,7 +13,7 @@ It can be used as a library (for loading in env for your own daemons etc.)
 ## Installation
 
 ```shell
-npm i @dotenv/core
+npm i @jsdotenv/core
 ```
 
 ## Usage
@@ -28,7 +28,7 @@ SECRET_KEY=YOURSECRETKEYGOESHERE
 Then in your Nodejs app you can do something like
 
 ```js
-import dotenv from "@dotenv/core";
+import dotenv from "@jsdotenv/core";
 
 dotenv.load(__dirname + "/.env");
 console.log(process.env["S3_BUCKET"]);
@@ -37,7 +37,7 @@ console.log(process.env["S3_BUCKET"]);
 If you're even lazier than that, you can just take advantage of the autoload package which will read in `.env` on import
 
 ```js
-import dotenvAuto from "@dotenv/autoload";
+import dotenvAuto from "@jsdotenv/autoload";
 ```
 
 While `.env` in the project root is the default, you don't have to be constrained, both examples below are 100% legit

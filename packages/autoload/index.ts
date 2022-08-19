@@ -1,4 +1,4 @@
-import dotenv from "@dotenv/core";
+import dotenv from "@jsdotenv/core";
 
 dotenv.load(process.cwd() + ".env");
 

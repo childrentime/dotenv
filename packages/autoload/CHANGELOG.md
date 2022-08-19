@@ -1,4 +1,4 @@
-# `@dotenv/autoload`
+# `@jsdotenv/autoload`
 
 ## 1.0.0
 

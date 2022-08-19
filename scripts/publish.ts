@@ -31,7 +31,7 @@ const run = async () => {
       : prereleaseTag
     : "latest";
   for (const name of ["core", "autoload"]) {
-    publish(path.join(buildDir, "@dotenv", name), tag);
+    publish(path.join(buildDir, "@jsdotenv", name), tag);
   }
 };
 
