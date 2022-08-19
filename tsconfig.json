@@ -1,0 +1,12 @@
+{
+  "files": [],
+  "exclude": ["node_modules", "build"],
+  "references": [
+    {
+      "path": "packages/core"
+    },
+    {
+      "path": "packages/autoload"
+    }
+  ]
+}
