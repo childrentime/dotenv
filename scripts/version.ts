@@ -10,7 +10,7 @@ const run = async (args: string[]) => {
   let givenVersion = args[0];
   let prereleaseId = args[1];
 
-  // ensureCleanWorkingDirectory();
+  ensureCleanWorkingDirectory();
 
   // Get the next version number
   let currentVersion = await getPackageVersion("core");
