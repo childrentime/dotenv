@@ -1,17 +1,18 @@
 import fs from "fs";
 import { count, splitN, trimPrefix } from "./common";
+import { Options } from "./types";
 
 class DotEnv {
-  public load(...filenames: string[]): void {
+  public load(
+    options: Options = {
+      override: false,
+    },
+    ...filenames: string[]
+  ): void {
+    const { override } = options;
     filenames = this.filenamesOrDefault(filenames);
     for (const filename of filenames) {
-      this.loadFile(filename, false);
-    }
-  }
-  public overload(...filenames: string[]) {
-    filenames = this.filenamesOrDefault(filenames);
-    for (const filename of filenames) {
-      this.loadFile(filename, true);
+      this.loadFile(filename, override);
     }
   }
   public parse(file: string): Map<string, string> {
@@ -48,7 +49,7 @@ class DotEnv {
     try {
       const file = fs.readFileSync(filename, "utf-8");
       return this.parse(file);
-    } catch (error: unknown) {
+    } catch (error) {
       throw new Error(error as string);
     }
   }
