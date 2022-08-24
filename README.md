@@ -34,12 +34,6 @@ dotenv.load(__dirname + "/.env");
 console.log(process.env["S3_BUCKET"]);
 ```
 
-If you're even lazier than that, you can just take advantage of the autoload package which will read in `.env` on import
-
-```js
-import dotenvAuto from "@jsdotenv/autoload";
-```
-
 While `.env` in the project root is the default, you don't have to be constrained, both examples below are 100% legit
 
 If you want to be really fancy with your env file you can do comments and exports (below is a valid env file)
