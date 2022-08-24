@@ -5,7 +5,9 @@ import semver from "semver";
 const buildDir = path.resolve(__dirname, "../build/node_modules");
 
 const getTaggedVersion = () => {
-  let output = execSync("git tag --list --points-at HEAD").toString().trim();
+  let output = execSync("git tag --list --points-at HEAD")
+    .toString()
+    .trim();
   return output.replace(/^v/g, "");
 };
 
@@ -30,7 +32,7 @@ const run = async () => {
       ? "experimental"
       : prereleaseTag
     : "latest";
-  for (const name of ["core", "autoload"]) {
+  for (const name of ["core"]) {
     publish(path.join(buildDir, "@jsdotenv", name), tag);
   }
 };
