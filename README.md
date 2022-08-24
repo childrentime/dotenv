@@ -30,7 +30,7 @@ Then in your Nodejs app you can do something like
 ```js
 import dotenv from "@jsdotenv/core";
 
-dotenv.load(__dirname + "/.env");
+dotenv.load([__dirname + "/.env"]);
 console.log(process.env["S3_BUCKET"]);
 ```
 

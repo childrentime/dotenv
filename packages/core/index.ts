@@ -1,16 +1,15 @@
 import fs from "fs";
 import { count, splitN, trimPrefix } from "./common";
-import { Options } from "./types";
+import { ArrRange, Options } from "./types";
 
 class DotEnv {
   public load(
+    filenames: ArrRange<1, 20, string>,
     options: Options = {
       override: false,
-    },
-    ...filenames: string[]
+    }
   ): void {
     const { override } = options;
-    filenames = this.filenamesOrDefault(filenames);
     for (const filename of filenames) {
       this.loadFile(filename, override);
     }
@@ -27,12 +26,6 @@ class DotEnv {
     return map;
   }
 
-  private filenamesOrDefault(filenames: string[]): string[] {
-    if (filenames.length == 0) {
-      return [".env"];
-    }
-    return filenames;
-  }
   private loadFile(filename: string, overload: boolean): void {
     const map = this.readFile(filename);
     for (const [key, value] of map) {
