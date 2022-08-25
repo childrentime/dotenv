@@ -39,10 +39,8 @@
     "preinstall": "npx only-allow yarn",
     "build": "node -r esbuild-register scripts/build.ts",
     "test": "jest --coverage",
-    "pub": "node -r esbuild-register scripts/publish.ts",
-    "ver": "node -r esbuild-register scripts/version.ts",
     "changeset": "changeset",
     "changeset:version": "changeset version",
-    "changeset:release": "yarn build  && yarn pub && changeset publish"
+    "changeset:publish": "yarn build && changeset publish"
   }
 }

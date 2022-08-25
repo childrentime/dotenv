@@ -1,5 +1,11 @@
 # `@jsdotenv/core`
 
+## 1.0.12
+
+### Patch Changes
+
+- remove unuse script
+
 ## 1.0.11
 
 ### Patch Changes
