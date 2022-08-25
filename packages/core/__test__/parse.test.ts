@@ -6,7 +6,6 @@ describe("parse", () => {
     const file = fs.readFileSync(__dirname + "/env/.env", "utf-8");
     const map = dotenv.parse(file);
     const arr = [...map];
-    console.log(arr);
     expect(arr).toStrictEqual([
       ["BASIC", "basic"],
       ["AFTER_LINE", "after_line"],
