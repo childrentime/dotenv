@@ -1,5 +1,11 @@
 # `@jsdotenv/core`
 
+## 1.0.8
+
+### Patch Changes
+
+- add changeset
+
 ## 1.0.0
 
 - add load, overload, parse function
