@@ -1,5 +1,11 @@
 # `@jsdotenv/core`
 
+## 1.0.11
+
+### Patch Changes
+
+- update readme
+
 ## 1.0.9
 
 ### Patch Changes

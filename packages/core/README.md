@@ -30,14 +30,8 @@ Then in your Nodejs app you can do something like
 ```js
 import dotenv from "@jsdotenv/core";
 
-dotenv.load(__dirname + "/.env");
+dotenv.load([__dirname + "/.env"]);
 console.log(process.env["S3_BUCKET"]);
-```
-
-If you're even lazier than that, you can just take advantage of the autoload package which will read in `.env` on import
-
-```js
-import dotenvAuto from "@jsdotenv/autoload";
 ```
 
 While `.env` in the project root is the default, you don't have to be constrained, both examples below are 100% legit
