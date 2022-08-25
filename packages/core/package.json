@@ -1,6 +1,6 @@
 {
   "name": "@jsdotenv/core",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Loads environment variables from .env file",
   "publishConfig": {
     "access": "public"

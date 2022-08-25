@@ -1,5 +1,11 @@
 # `@jsdotenv/core`
 
+## 1.1.1
+
+### Patch Changes
+
+- refactor parser
+
 ## 1.1.0
 
 ### Minor Changes
