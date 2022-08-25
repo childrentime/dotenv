@@ -40,7 +40,7 @@
     "build": "node -r esbuild-register scripts/build.ts",
     "test": "jest --coverage",
     "changeset": "changeset",
-    "changeset:version": "changeset version",
+    "changeset:version": "changeset version && node -r esbuild-register scripts/version.ts",
     "changeset:publish": "yarn build && changeset publish"
   }
 }

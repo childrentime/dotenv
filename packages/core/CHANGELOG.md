@@ -1,5 +1,11 @@
 # `@jsdotenv/core`
 
+## 1.0.13
+
+### Patch Changes
+
+- add keywords
+
 ## 1.0.12
 
 ### Patch Changes
