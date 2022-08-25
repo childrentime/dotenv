@@ -1,6 +1,7 @@
 import fs from "fs";
 import { count, splitN, trimPrefix } from "./common";
 import { ArrRange, Options } from "./types";
+import { isIgnoredLine } from "./utils";
 
 class DotEnv {
   public load(
@@ -18,7 +19,7 @@ class DotEnv {
     const map = new Map<string, string>();
     const lines: string[] = file.split(/\r?\n/);
     for (const line of lines) {
-      if (!this.isIgnoredLine(line)) {
+      if (!isIgnoredLine(line)) {
         const [key, value] = this.parseLine(line, map);
         map.set(key, value);
       }
@@ -38,7 +39,7 @@ class DotEnv {
       }
     }
   }
-  private readFile(filename: string) {
+  private readFile(filename: string): Map<string, string> {
     try {
       const file = fs.readFileSync(filename, "utf-8");
       return this.parse(file);
@@ -87,20 +88,14 @@ class DotEnv {
     }
 
     // Parse the key
-    let key = splitString[0];
-    if (key.startsWith("export")) {
-      key = trimPrefix(key, "export").trim();
-    }
-
-    key = key.replaceAll(exportRegex, "$1");
-
+    const key = splitString[0].replaceAll(exportRegex, "$1");
     // Parse the value
     const value = this.parseValue(splitString[1], map);
     return [key, value];
   }
   private parseValue(value: string, map: Map<string, string>): string {
-    const singleQuotesRegex = /\A'(.*)'\z/;
-    const doubleQuotesRegex = /\A"(.*)"\z/;
+    const singleQuotesRegex = /^'(.*)'$/;
+    const doubleQuotesRegex = /^"(.*)"$/;
     const escapeRegex = /\\./g;
     const unescapeCharsRegex = /\\([^$])/g;
 
@@ -116,6 +111,7 @@ class DotEnv {
         value = value.substring(1, value.length - 1);
       }
 
+      // doubelQouts should expand
       if (doubleQoutes != null) {
         // expand newlines
         value = value.replaceAll(escapeRegex, (match: string) => {
@@ -141,23 +137,19 @@ class DotEnv {
     return value;
   }
   private expandVariables(v: string, map: Map<string, string>): string {
-    const expandVarRegex = /(\\)?(\$)(\()?\{?([A-Z0-9_]+)?\}?/g;
+    const expandVarRegex = /(\\)?(\$)(\()?\{?([A-Z0-9_]+)?\}?/gy;
     return v.replaceAll(expandVarRegex, (match: string) => {
-      const submatch = v.match(match);
+      const submatch = match.split(expandVarRegex);
       if (submatch === null) {
         return match;
       }
       if (submatch[1] == "\\" || submatch[2] == "(") {
         return submatch[0].substring(1);
       } else if (submatch[4] != "") {
-        return map.get(submatch[4])!;
+        return map.get(submatch[4]) || "";
       }
       return match;
     });
-  }
-  private isIgnoredLine(line: string): boolean {
-    const trimmedline = line.trim();
-    return trimmedline.length === 0 || trimmedline.startsWith("#");
   }
 }
 
