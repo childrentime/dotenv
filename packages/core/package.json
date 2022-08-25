@@ -1,6 +1,6 @@
 {
   "name": "@jsdotenv/core",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Loads environment variables from .env file",
   "bugs": {
     "url": "https://github.com/childrentime/dotenv/issues"
