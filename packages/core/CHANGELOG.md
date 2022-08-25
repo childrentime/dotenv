@@ -1,5 +1,11 @@
 # `@jsdotenv/core`
 
+## 1.1.0
+
+### Minor Changes
+
+- fix regular expression error
+
 ## 1.0.13
 
 ### Patch Changes
