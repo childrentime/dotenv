@@ -1,17 +1,5 @@
-import { splitN, trimPrefix } from "../common";
+import { trimPrefix } from "../common";
 describe("common", () => {
-  it("splitN", () => {
-    const str = "a#bc#da#dsad#";
-    const splitStr1 = splitN(str, "#", 1);
-    const splitStr3 = splitN(str, "#", 3);
-    const splitStr2 = splitN(str, "#", 2);
-    const splitStr5 = splitN(str, "#", 5);
-    expect(splitStr1).toStrictEqual(["a#bc#da#dsad#"]);
-    expect(splitStr2).toStrictEqual(["a", "bc#da#dsad#"]);
-    expect(splitStr3).toStrictEqual(["a", "bc", "da#dsad#"]);
-    expect(splitStr5).toStrictEqual(["a", "bc", "da", "dsad", ""]);
-  });
-
   it("trimPrefix", () => {
     const str = "export123";
     const trimStr = trimPrefix(str, "export");

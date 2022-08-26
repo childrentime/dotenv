@@ -144,4 +144,10 @@ describe("parse", () => {
       ["OPTION_E", ""],
     ]);
   });
+
+  it("parse mul env", () => {
+    const file = fs.readFileSync(__dirname + "/env/mul.env", "utf-8");
+    const map = dotenv.parse(file);
+    const arr = [...map];
+  });
 });
