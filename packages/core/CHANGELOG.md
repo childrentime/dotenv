@@ -4,7 +4,8 @@
 
 ### Patch Changes
 
-- support mul line fix yml style
+- support mul line
+- fix yml style
 
 ## 1.1.1
 
