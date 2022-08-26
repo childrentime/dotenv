@@ -149,5 +149,26 @@ describe("parse", () => {
     const file = fs.readFileSync(__dirname + "/env/mul.env", "utf-8");
     const map = dotenv.parse(file);
     const arr = [...map];
+    expect(arr).toStrictEqual([
+      ["BASIC", "basic"],
+      ["AFTER_LINE", "after_line"],
+      ["EMPTY", ""],
+      ["SINGLE_QUOTES", "single_quotes"],
+      ["SINGLE_QUOTES_SPACED", "    single quotes    "],
+      ["DOUBLE_QUOTES", "double_quotes"],
+      ["DOUBLE_QUOTES_SPACED", "    double quotes    "],
+      ["EXPAND_NEWLINES", "expand\nnew\nlines"],
+      ["DONT_EXPAND_UNQUOTED", "dontexpand\\nnewlines"],
+      ["DONT_EXPAND_SQUOTED", "dontexpand\\nnewlines"],
+      ["EQUAL_SIGNS", "equals=="],
+      ["RETAIN_INNER_QUOTES", '{"foo": "bar"}'],
+      ["RETAIN_INNER_QUOTES_AS_STRING", '{"foo": "bar"}'],
+      ["TRIM_SPACE_FROM_UNQUOTED", "some spaced out string"],
+      ["USERNAME", "therealnerdybeast@example.tld"],
+      ["SPACED_KEY", "parsed"],
+      ["MULTI_DOUBLE_QUOTED", '"THIS\nIS\nA\nMULTILINE\nSTRING"'],
+      ["MULTI_SINGLE_QUOTED", "'THIS\nIS\nA\nMULTILINE\nSTRING'"],
+      ["MULTI_BACKTICKED", "`THIS"],
+    ]);
   });
 });
