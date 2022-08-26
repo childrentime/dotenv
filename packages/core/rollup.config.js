@@ -11,29 +11,46 @@ module.exports = function rollup() {
   let outputDir = getOutputDir(packageName);
   let outputDist = path.join(outputDir, "dist");
 
-  return {
-    input: `${sourceDir}/index.ts`,
-    output: {
-      dir: outputDist,
-      format: "cjs",
-      preserveModules: true,
-      exports: "named",
+  return [
+    {
+      input: `${sourceDir}/index.ts`,
+      output: {
+        dir: outputDist,
+        format: "cjs",
+        preserveModules: true,
+        exports: "named",
+      },
+      plugins: [
+        babel({
+          babelHelpers: "bundled",
+          exclude: /node_modules/,
+          extensions: [".ts"],
+        }),
+        nodeResolve({ extensions: [".ts"] }),
+        copy({
+          targets: [
+            { src: `LICENSE.md`, dest: [outputDir, sourceDir] },
+            { src: `${sourceDir}/package.json`, dest: [outputDir] },
+            { src: `${sourceDir}/README.md`, dest: outputDir },
+            { src: `${sourceDir}/CHANGELOG.md`, dest: outputDir },
+          ],
+        }),
+      ],
     },
-    plugins: [
-      babel({
-        babelHelpers: "bundled",
-        exclude: /node_modules/,
-        extensions: [".ts"],
-      }),
-      nodeResolve({ extensions: [".ts"] }),
-      copy({
-        targets: [
-          { src: `LICENSE.md`, dest: [outputDir, sourceDir] },
-          { src: `${sourceDir}/package.json`, dest: [outputDir] },
-          { src: `${sourceDir}/README.md`, dest: outputDir },
-          { src: `${sourceDir}/CHANGELOG.md`, dest: outputDir },
-        ],
-      }),
-    ],
-  };
+    {
+      input: `${sourceDir}/index.ts`,
+      output: {
+        format: "esm",
+        dir: path.join(outputDist, "esm"),
+      },
+      plugins: [
+        babel({
+          babelHelpers: "bundled",
+          exclude: /node_modules/,
+          extensions: [".ts"],
+        }),
+        nodeResolve({ extensions: [".ts"] }),
+      ],
+    },
+  ];
 };
