@@ -1,5 +1,11 @@
 # `@jsdotenv/core`
 
+## 1.1.2
+
+### Patch Changes
+
+- support mul line fix yml style
+
 ## 1.1.1
 
 ### Patch Changes
