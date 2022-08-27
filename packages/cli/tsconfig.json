@@ -1,0 +1,18 @@
+{
+  "include": ["**/*.ts", "rollup.config.js"],
+  "exclude": ["dist", "__test__", "node_modules"],
+  "compilerOptions": {
+    "lib": ["es2021"],
+    "module": "CommonJS",
+    "target": "es2021",
+
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "rootDir": "."
+  }
+}

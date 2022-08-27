@@ -1,0 +1,42 @@
+{
+  "name": "@jsdotenv/cli",
+  "version": "1.1.4",
+  "description": "Loads environment variables from .env file",
+  "publishConfig": {
+    "access": "public"
+  },
+  "bugs": {
+    "url": "https://github.com/childrentime/dotenv/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/childrentime/dotenv",
+    "directory": "packages/cli"
+  },
+  "sideEffects": false,
+  "bin": {
+    "dotenv-cli": "dist/index.js"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=14"
+  },
+  "files": [
+    "dist/",
+    "CHANGELOG.md",
+    "LICENSE.md",
+    "README.md"
+  ],
+  "keywords": [
+    "dotenv",
+    "env",
+    ".env",
+    "environment",
+    "variables",
+    "config",
+    "settings"
+  ],
+  "dependencies": {
+    "@jsdotenv/core": "1.1.4"
+  }
+}
