@@ -1,5 +1,5 @@
 {
-  "name": "@jsdotenv/cli",
+  "name": "create-dotenv",
   "version": "1.1.4",
   "description": "Loads environment variables from .env file",
   "publishConfig": {
