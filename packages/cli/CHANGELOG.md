@@ -1,8 +1,4 @@
-# @jsdotenv/cli
-
-## 2.0.0
-
-### Major Changes
+# create-dotenv
 
 - change pkg name
 
