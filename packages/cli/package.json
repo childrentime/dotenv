@@ -1,6 +1,6 @@
 {
   "name": "create-dotenv",
-  "version": "2.0.4",
+  "version": "2.0.6",
   "description": "Loads environment variables from .env file",
   "publishConfig": {
     "access": "public"
@@ -15,7 +15,7 @@
   },
   "sideEffects": false,
   "bin": {
-    "dotenv-cli": "dist/index.js"
+    "dotenv-cli": "index.js"
   },
   "license": "MIT",
   "engines": {
@@ -37,11 +37,7 @@
     "settings"
   ],
   "dependencies": {
-    "@jsdotenv/core": "^2.0.4",
-    "chalk": "4.1.2",
-    "commander": "^9.4.0",
-    "envinfo": "^7.8.1",
-    "leven": "^4.0.0",
+    "@jsdotenv/core": "^2.0.6",
     "minimist": "^1.2.6"
   },
   "devDependencies": {

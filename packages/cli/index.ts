@@ -1,6 +1,6 @@
-import minimist from "minimist";
+const minimist = require("minimist");
+const spawn = require("cross-spawn");
 import dotenv from "@jsdotenv/core";
-import spawn from "cross-spawn";
 
 function printHelp() {
   console.log(
@@ -86,12 +86,12 @@ if (!command) {
 }
 
 spawn(command, argv._.slice(1), { stdio: "inherit" }).on("exit", function(
-  exitCode,
-  signal
+  exitCode: number | null,
+  signal: string
 ) {
   if (exitCode != null) {
     process.exit(exitCode);
   } else {
-    process.kill(process.pid, signal!);
+    process.kill(process.pid, signal);
   }
 });

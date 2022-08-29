@@ -20,15 +20,15 @@ module.exports = function rollup() {
         banner: "#!/usr/bin/env node\n",
       },
       plugins: [
+        nodeResolve({
+          extensions: [".ts"],
+        }),
         babel({
           babelHelpers: "bundled",
           exclude: /node_modules/,
           extensions: [".ts"],
         }),
         commonjs(),
-        nodeResolve({
-          extensions: [".ts"],
-        }),
         copy({
           targets: [
             { src: `LICENSE.md`, dest: [outputDir, sourceDir] },
