@@ -1,14 +1,8 @@
 # dotenv
 
-A Javascript (nodejs) port of the Go [dotenv](https://github.com/joho/godotenv) project (which loads env vars from a .env file).
+Written in typescript, full testing.
 
-From the original Library:
-
-Storing configuration in the environment is one of the tenets of a twelve-factor app. Anything that is likely to change between deployment environments–such as resource handles for databases or credentials for external services–should be extracted from the code into environment variables.
-
-But it is not always practical to set environment variables on development machines or continuous integration servers where multiple projects are run. Dotenv load variables from a .env file into ENV when the environment is bootstrapped.
-
-It can be used as a library (for loading in env for your own daemons etc.)
+It can loads environment variables from a `.env` file into [`process.env`](https://nodejs.org/docs/latest/api/process.html#process_process_env) or parse `<key>=<value>` string
 
 ## Installation
 
@@ -34,8 +28,6 @@ dotenv.load([__dirname + "/.env"]);
 console.log(process.env["S3_BUCKET"]);
 ```
 
-While `.env` in the project root is the default, you don't have to be constrained, both examples below are 100% legit
-
 If you want to be really fancy with your env file you can do comments and exports (below is a valid env file)
 
 ```shell
@@ -50,4 +42,43 @@ Or finally you can do YAML(ish) style
 ```yaml
 FOO: bar
 BAR: baz
+```
+
+Multiple line is OK.
+
+```shell
+MULTI_DOUBLE_QUOTED="THIS
+IS
+A
+MULTILINE
+STRING"
+```
+
+Expand variables is OK.
+
+```shellOPTION_A=1
+OPTION_B=${OPTION_A}
+OPTION_C=$OPTION_B
+OPTION_D=${OPTION_A}${OPTION_B}
+OPTION_E=${OPTION_NOT_DEFINED}
+```
+
+## Command Mode
+
+```shell
+npm i create-dotenv -g
+```
+
+### Usage
+
+Execute commands using key-value pairs.
+
+```shell
+dotenv-cli -v KEY=VALUE -- bash -c 'echo "$BASIC"'
+```
+
+Execute commands using enviroment file.
+
+```shell
+dotenv-cli -e .env -- bash -c 'echo "$BASIC"'
 ```
