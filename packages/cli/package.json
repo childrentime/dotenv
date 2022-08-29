@@ -1,6 +1,6 @@
 {
   "name": "create-dotenv",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "Loads environment variables from .env file",
   "publishConfig": {
     "access": "public"
@@ -37,8 +37,9 @@
     "settings"
   ],
   "dependencies": {
-    "@jsdotenv/core": "^2.0.6",
-    "minimist": "^1.2.6"
+    "@jsdotenv/core": "^2.0.7",
+    "minimist": "^1.2.6",
+    "cross-spawn": "^7.0.3"
   },
   "devDependencies": {
     "@types/minimist": "^1.2.2"
