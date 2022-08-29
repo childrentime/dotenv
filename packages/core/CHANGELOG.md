@@ -1,70 +1,15 @@
-# `@jsdotenv/core`
+# Changelog
 
-## 1.1.4
+All notable changes to this project will be documented in this file.
 
-### Patch Changes
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
-- add esm output
+## 2.0.4 (2022-08-29)
 
-## 1.1.3
+### Added
 
-### Patch Changes
-
-- add test cases
-
-## 1.1.2
-
-### Patch Changes
-
-- support mul line
-- fix yml style
-
-## 1.1.1
-
-### Patch Changes
-
-- refactor parser
-
-## 1.1.0
-
-### Minor Changes
-
-- fix regular expression error
-
-## 1.0.13
-
-### Patch Changes
-
-- add keywords
-
-## 1.0.12
-
-### Patch Changes
-
-- remove unuse script
-
-## 1.0.11
-
-### Patch Changes
-
-- update readme
-
-## 1.0.9
-
-### Patch Changes
-
-- add package desc
-
-## 1.0.8
-
-### Patch Changes
-
-- add changeset
-
-## 1.0.0
-
-- add load, overload, parse function
-
-## 1.0.7
-
-- remove overload and add options
+- init core
+- support mul line, expand variables.
+- fully typescript
+- fully tested
