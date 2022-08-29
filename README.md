@@ -74,7 +74,7 @@ npm i create-dotenv -g
 Execute commands using key-value pairs.
 
 ```shell
-dotenv-cli -v KEY=VALUE -- bash -c 'echo "$BASIC"'
+dotenv-cli -v KEY=VALUE -- bash -c 'echo "$KEY"'
 ```
 
 Execute commands using enviroment file.
