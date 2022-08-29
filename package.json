@@ -14,6 +14,7 @@
     "@babel/preset-typescript": "^7.16.0",
     "@changesets/cli": "^2.24.3",
     "@rollup/plugin-babel": "^5.3.1",
+    "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@types/cross-spawn": "^6.0.2",
     "@types/envinfo": "^7.8.1",
@@ -22,7 +23,6 @@
     "@types/node": "^18.7.6",
     "@types/semver": "^7.3.12",
     "babel-jest": "^27.4.4",
-    "commander": "^9.4.0",
     "del": "^7.0.0",
     "esbuild": "^0.15.5",
     "esbuild-register": "^3.3.3",
@@ -36,10 +36,7 @@
     "typescript": "^4.7.4"
   },
   "dependencies": {
-    "cross-spawn": "^7.0.3",
-    "envinfo": "^7.8.1",
-    "leven": "^4.0.0",
-    "chalk": "4.1.2"
+    "cross-spawn": "^7.0.3"
   },
   "scripts": {
     "preinstall": "npx only-allow yarn",
@@ -47,6 +44,7 @@
     "test": "jest --coverage",
     "changeset": "changeset",
     "changeset:version": "changeset version && node -r esbuild-register scripts/version.ts",
-    "changeset:publish": "yarn build && changeset publish"
+    "changeset:publish": "yarn build && changeset publish",
+    "test1": "node -r esbuild-register packages/cli/index.ts -e packages/cli/__test__/env/.env --command bash -c echo $BASIC"
   }
 }

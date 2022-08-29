@@ -1,11 +1,11 @@
 import fs from "fs";
-import { ArrRange, Options } from "./types";
+import { Options } from "./types";
 import Parser from "./parser";
 
 class DotEnv {
   public parser = new Parser();
   public load(
-    filenames: ArrRange<1, 20, string>,
+    filenames: string[],
     options: Options = {
       override: false,
     }
