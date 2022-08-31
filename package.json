@@ -22,6 +22,7 @@
     "@types/node": "^18.7.6",
     "@types/semver": "^7.3.12",
     "babel-jest": "^27.4.4",
+    "cross-spawn": "^7.0.3",
     "del": "^7.0.0",
     "esbuild": "^0.15.5",
     "esbuild-register": "^3.3.3",
