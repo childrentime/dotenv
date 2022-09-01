@@ -35,5 +35,8 @@
     "variables",
     "config",
     "settings"
-  ]
+  ],
+  "dependencies": {
+    "cross-spawn": "^7.0.3"
+  }
 }
