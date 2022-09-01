@@ -12,6 +12,8 @@ npm i @jsdotenv/core
 
 ## Usage
 
+### Load env file
+
 Add your application configuration to your `.env` file in the root of your project:
 
 ```shell
@@ -21,7 +23,7 @@ SECRET_KEY=YOURSECRETKEYGOESHERE
 
 Then in your Nodejs app you can do something like
 
-```js
+```ts
 import dotenv from "@jsdotenv/core";
 
 dotenv.load([__dirname + "/.env"]);
@@ -63,7 +65,46 @@ OPTION_D=${OPTION_A}${OPTION_B}
 OPTION_E=${OPTION_NOT_DEFINED}
 ```
 
-## Command Mode
+### Writing Env Files
+
+dotenv can also write a map representing the environment to a correctly-formatted and escaped file.
+
+```ts
+const map = new Map();
+map.set("BASIC", "basic");
+map.set("KEY", "value");
+const filepath = path.resolve(__dirname, "./jsfile/.env");
+dotenv.write(map, filepath);
+```
+
+... or to a string
+
+```ts
+const map = new Map();
+map.set("BASIC", "basic");
+map.set("KEY", "value");
+const lines = dotenv.marshal(map);
+```
+
+### Exec commands
+
+dotenv can run commands and inherit output.
+
+exec bash commands
+
+```ts
+const pathname = path.resolve(__dirname + "/env/.env");
+const out = dotenv.exec([pathname], "bash", ["-c", 'echo "$BASIC"']);
+```
+
+exec nodejs commands
+
+```ts
+const pathname = path.resolve(__dirname, "./jsfile/hello.js");
+const out = dotenv.exec([], "node", [pathname]);
+```
+
+## Cli
 
 ```shell
 npm i create-dotenv -g
@@ -81,4 +122,10 @@ Execute commands using enviroment file.
 
 ```shell
 dotenv-cli -e .env -- bash -c 'echo "$BASIC"'
+```
+
+Execute commands --help for Usage
+
+```shell
+dotenv-cli --help
 ```

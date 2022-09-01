@@ -1,9 +1,11 @@
 import fs from "fs";
 import { Options } from "./types";
 import Parser from "./parser";
+import spawn from "cross-spawn";
+import { doubleQuoteEscape } from "./common";
 
 class DotEnv {
-  public parser = new Parser();
+  private parser = new Parser();
   public load(
     filenames: string[],
     options: Options = {
@@ -17,6 +19,32 @@ class DotEnv {
   }
   public parse(file: string): Map<string, string> {
     return this.parser.parse(file);
+  }
+  public exec(filenames: string[], cmd: string, cmdArgs: string[]) {
+    this.load(filenames, { override: true });
+    const ls = spawn.sync(cmd, cmdArgs, { env: process.env });
+    return ls.stdout.toString("utf-8");
+  }
+  public write(map: Map<string, string>, filename: string): boolean {
+    const lines = this.marshal(map).concat("\n");
+    try {
+      fs.writeFileSync(filename, lines);
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
+  public marshal(map: Map<string, string>): string {
+    const lines: string[] = [];
+    for (const [key, value] of map) {
+      if (!isNaN(parseInt(value))) {
+        lines.push(`${key}=${value}`);
+      } else {
+        lines.push(`${key}="${doubleQuoteEscape(value)}"`);
+      }
+    }
+    return lines.join("\n");
   }
 
   private loadFile(filename: string, overload: boolean): void {

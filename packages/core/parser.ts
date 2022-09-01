@@ -5,7 +5,8 @@ export default class Parser {
 
   public parse(file: string): Map<string, string> {
     this.map = new Map();
-    const LINE = /(?:^|\A)\s*(?:export\s+)?([\w.]+)(?:\s*=\s*?|:\s+?)(\s*'(?:\\'|[^'])*'|\s*"(?:\\"|[^"])*"|[^\#\r\n]+)?\s*(?:\#.*)?(?:$|\z)/gm;
+    const LINE =
+      /(?:^|\A)\s*(?:export\s+)?([\w.]+)(?:\s*=\s*?|:\s+?)(\s*'(?:\\'|[^'])*'|\s*"(?:\\"|[^"])*"|[^\#\r\n]+)?\s*(?:\#.*)?(?:$|\z)/gm;
 
     const lines = file.replace(/\r\n?/gm, "\n");
     // Process matches
