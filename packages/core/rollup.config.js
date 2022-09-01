@@ -2,6 +2,7 @@ const path = require("path");
 const babel = require("@rollup/plugin-babel").default;
 const nodeResolve = require("@rollup/plugin-node-resolve").default;
 const copy = require("rollup-plugin-copy");
+const commonjs = require("@rollup/plugin-commonjs");
 
 const { name: packageName } = require("./package.json");
 const { getOutputDir } = require("../../rollup.utils");
@@ -27,6 +28,7 @@ module.exports = function rollup() {
           extensions: [".ts"],
         }),
         nodeResolve({ extensions: [".ts"] }),
+        commonjs(),
         copy({
           targets: [
             { src: `LICENSE.md`, dest: [outputDir, sourceDir] },
@@ -50,6 +52,7 @@ module.exports = function rollup() {
           extensions: [".ts"],
         }),
         nodeResolve({ extensions: [".ts"] }),
+        commonjs(),
       ],
     },
   ];

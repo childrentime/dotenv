@@ -1,8 +1,8 @@
 import fs from "fs";
 import { Options } from "./types";
 import Parser from "./parser";
-import spawn from "cross-spawn";
 import { doubleQuoteEscape } from "./common";
+const spawn = require("cross-spawn");
 
 class DotEnv {
   private parser = new Parser();
